@@ -1,7 +1,7 @@
 # 1. DevOPS Training Assignment 1
 ## Step 1 Identify a Sample Application
-	
-	Example "Hello World" is chosen from https://fastapi.tiangolo.com/ simply return API response(Hello World).
+Example "Hello World" is chosen from https://fastapi.tiangolo.com/ simply return API response(Hello World).
+
 ```Python3
 	from typing import Union
 
@@ -21,7 +21,9 @@
 		
 ```
 
+
 **Created a runner app to run FastAPI Server on Port 3000**
+
 
 ```Python3
 	import uvicorn
@@ -39,7 +41,7 @@
 	
 	pip is used to install all required dependencies. Once done following command is used to generate all dependencies in one file.
 	
-	**pip freeze >requirement.txt**
+**pip freeze >requirement.txt**
 	
 ## Step 3 Create a Docker file
 ```Dockerfile
@@ -57,10 +59,11 @@
 ```
 ## Step 4 Build the Docker Image
   
-  **docker build . --tag faisalriaz/sample_fastapi:v1**
+**docker build . --tag faisalriaz/sample_fastapi:v1**
 
-Above command will build the image with name "username/image name with tag.
-Here the Username should be the Docker Hub username.
+Above command will build the image with name *"username/image name"* with tag.
+Here the Username should be the *Docker Hub username*.
+
 ```txt
 $ docker build .  -t faisalriazz/sample_fastapi:latest
 [+] Building 2.3s (10/10) FINISHED                                  docker:default
@@ -86,14 +89,14 @@ What's Next?
 ```
 **Run container from docker desktop to verify**
 
-logs
+**logs**
 ```
 2023-08-07 15:30:39 INFO:     Started server process [7]
 2023-08-07 15:30:39 INFO:     Waiting for application startup.
 2023-08-07 15:30:39 INFO:     Application startup complete.
 2023-08-07 15:30:39 INFO:     Uvicorn running on http://0.0.0.0:3000 (Press CTRL+C to quit)
 ```
-terminal
+**terminal**
 
 ```
 # pwd
@@ -138,8 +141,10 @@ wheel             0.41.0
 ```
 ## Step 5 Push the Docker Image to Docker Hub
   
-   Create a repository <sample_fastapi> in dockur hub
-*  docker push faisalriazz/sample_fastapi:v1
+Create a repository <sample_fastapi> in dockur hub
+
+**docker push faisalriazz/sample_fastapi:v1**
+
 ```
 docker push faisalriazz/sample_fastapi:v1
 The push refers to repository [docker.io/faisalriazz/sample_fastapi]
@@ -154,8 +159,9 @@ c6e34807c2d5: Layer already exists
 v1: digest: sha256:d9336fbd957905cd4462849c39862a1bdccc37b8ba560f81bf5f5c79c3ffc999 size: 2209
 
 ```
-*  Using Docker Pull command to verify 
-   docker pull faisalriazz/sample_fastapi:v1
+Using Docker Pull command to verify 
+
+**docker pull faisalriazz/sample_fastapi:v1**
 ```
 v1: Pulling from faisalriazz/sample_fastapi
 Digest: sha256:d9336fbd957905cd4462849c39862a1bdccc37b8ba560f81bf5f5c79c3ffc999
@@ -174,11 +180,10 @@ image can be accessed via public repository
 https://hub.docker.com/repository/docker/faisalriazz/sample_fastapi/general
 
 ## Step 6 Running the container
-   **docker run -d -p 3000:3000 faisalriazz/sample_fastapi:v1 --name FastApiServer**
+   **docker run --name FastApiServer -d -p 3000:3000 faisalriazz/sample_fastapi:v1**
 d2c0dc3b160aca56f2ad2643a0fd863fab11cec6240323bacc1c9613149e5b1f
 
-
-	Above command will run container in detach mode at localhost port 3000 with container name "FastApiServer"
+Above command will run container in detach mode at localhost port 3000 with container name "FastApiServer"
 
 Verifying the server is running using curl
 ```
